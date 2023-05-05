@@ -8,33 +8,27 @@ import project.method.browser.Session;
 public class Generate {
 
 	static public String xpath(String tag, String text) {
-		String xpath = tag(tag) + text(text) + notAncestor();
-		return xpath;
+		return tag(tag) + text(text) + notAncestor();
 	}
 
 	static public String xpath(String tag, String attribute, String value) {
-		String xpath = tag(tag) + attribute(attribute, value) + notAncestor();
-		return xpath;
+		return tag(tag) + attribute(attribute, value) + notAncestor();
 	}
 
 	static public String xpath(String tag, String attribute, String value, String text) {
-		String xpath = tag(tag) + attribute(attribute, value) + text(text) + notAncestor();
-		return xpath;
+		return tag(tag) + attribute(attribute, value) + text(text) + notAncestor();
 	}
 
 	static public By by(String xpath) {
-		By by = By.xpath(xpath);
-		return by;
+		return By.xpath(xpath);
 	}
 
 	static public WebElement element(String xpath) {
-		WebElement element = Session.getBrowser().findElement(by(xpath));
-		return element;
+		return Session.getBrowser().findElement(by(xpath));
 	}
 
 	static public WebElement element(By by) {
-		WebElement element = Session.getBrowser().findElement(by);
-		return element;
+		return Session.getBrowser().findElement(by);
 	}
 
 	static private String tag(String tag) {
@@ -47,7 +41,6 @@ public class Generate {
 
 	static private String text(String text) {
 		return "[text()[contains(.,'" + text + "')]]";
-
 	}
 
 	static private String notAncestor() {

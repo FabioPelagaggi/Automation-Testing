@@ -23,9 +23,9 @@ public class App {
         Page.clickBirds();
         Screenshot.takeAndSave();
 
-        Generate.log();
-
         Session.closeBrowser();
+
+        Generate.logTesting();
 
     }
 }

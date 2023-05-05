@@ -7,7 +7,7 @@ import org.apache.commons.io.FileUtils;
 
 public class Generate {
 
-	public static void log() throws IOException {
+	public static void logTesting() throws IOException {
 		File htmlTemplateFile = new File("src\\project\\html\\template\\Log_Template.html");
 		String htmlString = FileUtils.readFileToString(htmlTemplateFile, "UTF-8");
 		String title = "New Page";
