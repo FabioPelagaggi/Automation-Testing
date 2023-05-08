@@ -2,38 +2,93 @@ package project.method.logs;
 
 public class Component {
 
-	static public String section(){
+	static private String sectionTestcaseName(String testcaseName){
+		return "<section id=\"" + testcaseName + "\" class=\"card shadow mb-4\"><div class=\"card-header d-flex justify-content-between align-items-center\"><h5 class=\"m-0 text-primary\">"+ testcaseName +"</h5>";
+	}
+
+	static private String sectionStatus(boolean sectionStatus){
+		if(sectionStatus){
+			return "<span class=\"align-self-center btn btn-success pe-none\">Pass</span>";
+		}else{
+			return "<span class=\"align-self-center btn btn-danger pe-none\">Fail</span>";
+		}
+	}
+
+	static private String sectionDescription(String sectionDescription){
+		return "<div class=\"card-body\"><p>" + sectionDescription + "</p></div>";
+	}
+
+	static private String sectionScreenshot(String sectionScreenshot){
+		return "<div class=\"card-body\"><a href=\"" + sectionScreenshot + "\"><img src=\"" + sectionScreenshot + "\" class=\"rounded\" alt=\"...\" style=\"width: 450px\" /></a></div>";
+	}
+
+	static private String sectionCodeLine(String sectionCodeLine){
+		return "<div><span><b>Code Line</b> - </span><span>" + sectionCodeLine + "</span></div>";
+	}
+
+	static private String sectionTimestamp(String sectionTimestamp){
+		return "<div><span><b>Timestamp</b> - </span><span>" + sectionTimestamp + "</span></div>";
+	}
+
+	static public String section(String testcaseName, boolean sectionStatus, String sectionDescription, String sectionScreenshot, String sectionCodeLine){
 		StringBuilder sectionComponent = new StringBuilder();
-		sectionComponent.append("<section id=\"Test Item 1\" class=\"card shadow mb-4\">");
-		sectionComponent.append("<div class=\"card-header d-flex justify-content-between align-items-center\">");
-		sectionComponent.append("<h5 class=\"m-0 text-primary\">");
-		sectionComponent.append("Test Item 1");
-		sectionComponent.append("</h5>");
-		sectionComponent.append("<span class=\"align-self-center btn btn-success\">Pass</span>");
-		sectionComponent.append("</div>");
-		sectionComponent.append("<div class=\"d-flex flex-column\">");
-		sectionComponent.append("<div class=\"card-body d-flex justify-content-center \">");
-		sectionComponent.append("<div>");
-		sectionComponent.append("<img src=\"/src/project/html/template/screenshots/screenshot_3.png\" class=\"rounded\" alt=\"...\" style=\"width: 450px\" />");
-		sectionComponent.append("</div>");
-		sectionComponent.append("<div class=\"card-body ms-5 m-2\">");
-		sectionComponent.append("<b>Access Dogs Page.</b>");
-		sectionComponent.append("<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>");
-		sectionComponent.append("</div>");
-		sectionComponent.append("</div>");
-		sectionComponent.append("<div class=\"card-footer d-flex justify-content-around\">");
-		sectionComponent.append("<div>");
-		sectionComponent.append("<span><b>Code Line</b> - </span>");
-		sectionComponent.append("<span>125</span>");
-		sectionComponent.append("</div>");
-		sectionComponent.append("<div>");
-		sectionComponent.append("<span><b>Timestamp</b> - </span>");
-		sectionComponent.append("<span>13:22:35 [23/04/2023]</span>");
-		sectionComponent.append("</div>");
-		sectionComponent.append("</div>");
-		sectionComponent.append("</div>");
-		sectionComponent.append("</section>");
+
+		sectionComponent.append(sectionTestcaseName(testcaseName));
+		sectionComponent.append(sectionStatus(sectionStatus));
+		sectionComponent.append("</div><div class=\"d-flex flex-column\"><div class=\"card-body d-flex justify-content-center \">");
+		sectionComponent.append(sectionScreenshot(sectionScreenshot));
+		sectionComponent.append(sectionDescription(sectionDescription));
+		sectionComponent.append("</div><div class=\"card-footer d-flex justify-content-around\">");
+		sectionComponent.append(sectionCodeLine(sectionCodeLine));
+		sectionComponent.append(sectionTimestamp(DateTime.now()));
+		sectionComponent.append("</div></div></section>");
+		sectionComponent.append("<div hidden>$section</div>");
+
 		return sectionComponent.toString();
 	}
 
+	static public String section(String testcaseName, String sectionDescription, String sectionScreenshot, String sectionCodeLine){
+		StringBuilder sectionComponent = new StringBuilder();
+
+		sectionComponent.append(sectionTestcaseName(testcaseName));
+		sectionComponent.append("</div><div class=\"d-flex flex-column\"><div class=\"card-body d-flex justify-content-center \">");
+		sectionComponent.append(sectionScreenshot(sectionScreenshot));
+		sectionComponent.append(sectionDescription(sectionDescription));
+		sectionComponent.append("</div><div class=\"card-footer d-flex justify-content-around\">");
+		sectionComponent.append(sectionCodeLine(sectionCodeLine));
+		sectionComponent.append(sectionTimestamp(DateTime.now()));
+		sectionComponent.append("</div></div></section>");
+		sectionComponent.append("<div hidden>$section</div>");
+
+		return sectionComponent.toString();
+	}
+
+	static public String section(String testcaseName, String sectionDescription, String sectionCodeLine){
+		StringBuilder sectionComponent = new StringBuilder();
+
+		sectionComponent.append(sectionTestcaseName(testcaseName));
+		sectionComponent.append("</div><div class=\"d-flex flex-column\"><div class=\"card-body d-flex justify-content-center \">");
+		sectionComponent.append(sectionDescription(sectionDescription));
+		sectionComponent.append("</div><div class=\"card-footer d-flex justify-content-around\">");
+		sectionComponent.append(sectionCodeLine(sectionCodeLine));
+		sectionComponent.append(sectionTimestamp(DateTime.now()));
+		sectionComponent.append("</div></div></section>");
+		sectionComponent.append("<div hidden>$section</div>");
+
+		return sectionComponent.toString();
+	}
+
+	static public String section(String testcaseName, String sectionCodeLine){
+		StringBuilder sectionComponent = new StringBuilder();
+
+		sectionComponent.append(sectionTestcaseName(testcaseName));
+		sectionComponent.append("</div><div class=\"d-flex flex-column\"><div class=\"card-body d-flex justify-content-center \">");
+		sectionComponent.append("</div><div class=\"card-footer d-flex justify-content-around\">");
+		sectionComponent.append(sectionCodeLine(sectionCodeLine));
+		sectionComponent.append(sectionTimestamp(DateTime.now()));
+		sectionComponent.append("</div></div></section>");
+		sectionComponent.append("<div hidden>$section</div>");
+
+		return sectionComponent.toString();
+	}
 }

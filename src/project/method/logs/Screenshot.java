@@ -13,16 +13,18 @@ public class Screenshot {
 
 	public static int count = 01;
 
-	public static void takeAndSave() throws IOException {
-		save(take());
+	public static String takeAndSave() throws IOException {
+		return save(take());
 	}
 
 	public static File take() {
 		return ((TakesScreenshot) Session.getBrowser()).getScreenshotAs(OutputType.FILE);
 	}
 
-	public static void save(File screenshot) throws IOException {
-		FileUtils.copyFile(screenshot, new File("Automation_Logs\\screenshots\\screenshot_" + count + ".png"));
+	public static String save(File screenshot) throws IOException {
+		String path = "Automation_Logs\\screenshots\\screenshot_" + count + ".png";
+		FileUtils.copyFile(screenshot, new File(path));
 		count++;
+		return path;
 	}
 }
